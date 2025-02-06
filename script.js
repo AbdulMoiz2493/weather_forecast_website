@@ -1,7 +1,7 @@
 // Configuration
-const API_KEY = 'b47fada7e77e4483cbedcbfe5ffd407e';
+const API_KEY = 'YOUR_API_KEY';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
-const GEMINI_API_KEY = 'AIzaSyCGytT1rXz-tX6yMCYSy8mFvkcHgEORPDk';
+const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
 let currentUnit = 'metric';
 let currentPage = 1;
