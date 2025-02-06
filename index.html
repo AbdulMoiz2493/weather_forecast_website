@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-white shadow-lg">
+            <div class="p-6">
+                <h1 id="weather-app" class="text-xl font-bold mb-8">Weather App</h1>
+                <a href="index.html" class="block p-3 text-blue-600 bg-blue-50 rounded-lg font-semibold">Dashboard</a>
+                <a href="table.html" class="block p-3 text-gray-600 hover:bg-gray-50 rounded-lg">Tables</a>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-8">
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex-1 max-w-2xl">
+                    <input type="text" id="citySearch" placeholder="Enter city name" class="w-full p-3 rounded-lg border">
+                </div>
+                <button id="toggleUnit" class="px-4 py-2 bg-blue-500 text-white rounded-lg ml-4">°C / °F</button>
+                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer">👤</div>
+            </div>
+
+            <div id="loadingSpinner" class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+                <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
+            </div>
+
+            <div class="weather-widget p-8 rounded-lg shadow-lg mb-8 text-white bg-gradient-to-r from-blue-500 to-blue-600">
+                <div id="currentWeather" class="text-center">
+                    <h2 class="text-3xl font-bold mb-4">Enter a city name</h2>
+                    <div class="flex justify-center items-center gap-8">
+                        <div>
+                            <span class="text-6xl font-bold">--°</span>
+                        </div>
+                        <div>
+                            <img id="weatherIcon" src="" alt="Weather Icon" class="w-16 h-16">
+                            <p class="text-xl">--</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-lg font-semibold mb-4">Temperature</h3>
+                    <canvas id="tempBarChart"></canvas>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-lg font-semibold mb-4">Weather Conditions</h3>
+                    <canvas id="weatherPieChart"></canvas>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-lg font-semibold mb-4">Temperature Trend</h3>
+                    <canvas id="tempLineChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-4">Forecast Data</h2>
+                <div class="mb-4">
+                    <button id="sortAscending" class="px-4 py-2 bg-blue-500 text-white rounded-lg mr-2">Sort Ascending</button>
+                    <button id="sortDescending" class="px-4 py-2 bg-blue-500 text-white rounded-lg mr-2">Sort Descending</button>
+                    <button id="filterRainy" class="px-4 py-2 bg-blue-500 text-white rounded-lg mr-2">Show Rainy Days</button>
+                    <button id="findHottest" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Find Hottest Day</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="p-2 text-left">Date</th>
+                                <th class="p-2 text-left">Temperature</th>
+                                <th class="p-2 text-left">Weather</th>
+                                <th class="p-2 text-left">Humidity</th>
+                                <th class="p-2 text-left">Wind Speed</th>
+                            </tr>
+                        </thead>
+                        <tbody id="forecastTable">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex justify-between items-center mt-4 px-6 py-3 bg-gray-50 border-t">
+                    <button id="prevPage" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Previous</button>
+                    <span id="pageInfo" class="text-sm text-gray-700">Page 1 of 1</span>
+                    <button id="nextPage" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Next</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="py-8 text-center">
+        <div class="max-w-6xl mx-auto">
+            <h6 class="text-1xl  mb-4"><p>&copy; 2024 Abdul Moiz. All Rights Reserved.</p></h6>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
