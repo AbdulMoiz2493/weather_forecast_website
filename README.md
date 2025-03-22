@@ -1,4 +1,4 @@
-# Weather Forecast Website   
+# Weather Forecast Website
 
 This project consists of the following files:
 - `index.html`
